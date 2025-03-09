@@ -1,0 +1,86 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #22d3ee, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.header-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.header-nav-link {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.header-nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #22d3ee;
+  transition: width 0.3s ease-in-out;
+}
+
+.header-nav-link:hover::after {
+  width: 100%;
+}
+
+.header-nav-link:hover {
+  color: #22d3ee;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.header-login {
+  background: none;
+  border: 1px solid #22d3ee;
+  color: #22d3ee;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.header-login:hover {
+  background-color: #22d3ee;
+  color: #0f172a;
+}
+
+.header-signup {
+  background: linear-gradient(90deg, #22d3ee, #34d399);
+  color: #0f172a;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.header-signup:hover {
+  transform: scale(1.05);
+}
