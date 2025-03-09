@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header-logo'>
-        <span className='header-logo-text'>Fantasy Cricket</span>
+        <span className='header-logo-text'><Link href='/'>Fantasy Cricket</Link></span>
       </div>
       <button className='hamburger' onClick={toggleNav}>
         =
