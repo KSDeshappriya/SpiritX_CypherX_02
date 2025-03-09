@@ -115,4 +115,72 @@ body {
     margin-top: 1rem;
   }
 
-  
+  .expenditure-table th,
+.expenditure-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.expenditure-table th {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.expenditure-table td {
+  color: #1e293b;
+}
+
+.total-row {
+  font-weight: 600;
+  background: #f1f5f9;
+}
+
+.player-count {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .budget-tracker {
+    padding: 2rem 1rem;
+  }
+
+  .budget-tracker-title {
+    font-size: 2rem;
+  }
+
+  .budget-container {
+    flex-direction: column;
+  }
+
+  .budget-overview, .expenditure-breakdown {
+    width: 100%;
+  }
+
+  .expenditure-table th,
+  .expenditure-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .budget-tracker-title {
+    font-size: 1.5rem;
+  }
+
+  .budget-details p {
+    font-size: 1rem;
+  }
+
+  .expenditure-table th,
+  .expenditure-table td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+}
