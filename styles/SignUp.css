@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  .signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 2rem;
+  }
+  
+  .signup-container {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.2);
+  }
