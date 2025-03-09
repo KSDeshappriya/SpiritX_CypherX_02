@@ -36,4 +36,32 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  } 
+
+  .signup-field {
+    display: flex;
+    flex-direction: column;
   }
+  
+  .signup-label {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .signup-input {
+    background: #1e293b;
+    border: 1px solid #22d3ee;
+    padding: 0.75rem;
+    border-radius: 10px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .signup-input:focus {
+    outline: none;
+    border-color: #34d399;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  }
+  
