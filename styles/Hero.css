@@ -71,8 +71,8 @@
 }
 
 .hero-image-container {
-  margin-top: 2rem;
   position: relative;
+  margin-right: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -83,10 +83,9 @@
 
 .hero-image {
   width: 100%;
-  max-width: 300px;
-  border-radius: 50%;
+  max-width: 600px;
   animation: float 3s ease-in-out infinite;
-  border: 3px solid #22d3ee;
+  box-shadow: 0 0 20px 10px rgba(34, 211, 238, 0.5); /* Blurred outline effect */
 }
 
 @keyframes float {
