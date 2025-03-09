@@ -4,7 +4,7 @@ import '../styles/SelectTeam.css';
 export default function SelectTeam() {
   const [filter, setFilter] = useState('All');
   const [selectedPlayers, setSelectedPlayers] = useState([]);
-  const [budget, setBudget] = useState(400000); 
+  const [budget, setBudget] = useState(400000); // Initial budget: Rs 400,000
   const maxPlayers = 11;
 
   const players = [
@@ -22,7 +22,7 @@ export default function SelectTeam() {
     { id: 'CR', name: 'Chamika Rajapaksa', university: 'University of Moratuwa', role: 'Batsman', value: 80000 },
     { id: 'CS', name: 'Charith Shanaka', university: 'University of Colombo', role: 'Batsman', value: 80000 },
     { id: 'CG', name: 'Chathuranga Gunathilaka', university: 'University of Ruhuna', role: 'Batsman', value: 80000 },
-  ]; 
+  ];
 
   const filteredPlayers = filter === 'All' ? players : players.filter(player => player.role === filter);
 
@@ -39,7 +39,7 @@ export default function SelectTeam() {
   };
 
   useEffect(() => {
-    
+    // Ensure budget doesn't go negative (though logic above prevents it)
     if (budget < 0) setBudget(0);
   }, [budget]);
 

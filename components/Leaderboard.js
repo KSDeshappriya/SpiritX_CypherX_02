@@ -1,18 +1,16 @@
+import { useState, useEffect } from 'react';
 import '../styles/Leaderboard.css';
 
 export default function Leaderboard() {
-  const leaderboardData = [
-    { rank: 1, username: 'CricketKing', points: 1250 },
-    { rank: 2, username: 'FantasyPro', points: 1180 },
-    { rank: 3, username: 'WicketWizard', points: 1100 },
-    { rank: 4, username: 'BattingStar', points: 1050 },
-    { rank: 5, username: 'AllRounderAce', points: 1020 },
-    { rank: 6, username: 'BowlingBeast', points: 980 },
-    { rank: 7, username: 'FieldingFlash', points: 950 },
-    { rank: 8, username: 'RunMachine', points: 920 },
-    { rank: 9, username: 'SpinMaster', points: 890 },
-    { rank: 10, username: 'PowerHitter', points: 860 },
-  ];
+  const [leaderboardData, setLeaderboardData] = useState([]);
+
+  useEffect(() => {
+    // Fetch leaderboard data from the backend API
+    fetch('/api/leaderboard')
+      .then((res) => res.json())
+      .then((data) => setLeaderboardData(data))
+      .catch((error) => console.error('Error fetching leaderboard:', error));
+  }, []);
 
   return (
     <section className='leaderboard'>

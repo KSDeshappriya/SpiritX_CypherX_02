@@ -13,7 +13,7 @@ export default function Hero() {
         <button className='hero-button'>Start Playing Now</button>
       </div>
       <div className='hero-image-container'>
-        <img src='/cricket.jpg' alt='Cricket Ball' className='hero-image' />
+        <img src='/cricket.webp' alt='Cricket Ball' className='hero-image' />
       </div>
     </section>
   );

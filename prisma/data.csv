@@ -1,0 +1,26 @@
+name,university,role,value,batting_runs,batting_innings,batting_average,batting_strikeRate,bowling_wickets,bowling_overs,bowling_runsConceded,bowling_economy,bowling_strikeRate
+Angelo Kumara,Eastern University,Batsman,800000,500,10,50.00,80.00,,,,,
+Asela Asalanka,South Eastern University,Batsman,900000,750,12,62.50,85.00,,,,,
+Asela Vandersay,University of the Visual & Performing Arts,Bowler,850000,184,14,11.00,50.00,37,112,448,4.00,18.16
+Avishka Mendis,Eastern University,All-Rounder,900000,600,10,60.00,80.00,20,50,250,5.00,15.00
+Bhanuka Rajapaksa,University of Colombo,Batsman,950000,800,15,53.33,90.00,,,,,
+Chamika Karunaratne,University of Peradeniya,Bowler,700000,150,8,18.75,70.00,45,120,480,4.00,16.00
+Dhananjaya de Silva,University of Kelaniya,All-Rounder,1000000,700,13,53.85,88.00,25,60,300,5.00,14.40
+Dasun Shanaka,University of Moratuwa,Batsman,850000,650,11,59.09,82.00,,,,,
+Dimuth Karunaratne,University of Jaffna,Batsman,800000,550,10,55.00,78.00,,,,,
+Isuru Udana,University of Ruhuna,Bowler,750000,200,9,22.22,65.00,50,130,520,4.00,15.60
+Kusal Mendis,University of Colombo,Batsman,900000,720,14,51.43,87.00,,,,,
+Lahiru Kumara,University of Peradeniya,Bowler,800000,180,10,20.00,60.00,40,110,440,4.00,16.50
+Lasith Malinga,University of Moratuwa,Bowler,950000,250,12,20.83,75.00,55,140,560,4.00,15.27
+Mahela Jayawardene,University of Colombo,Batsman,1000000,900,16,56.25,92.00,,,,,
+Niroshan Dickwella,University of Kelaniya,Batsman,850000,680,13,52.31,84.00,,,,,
+Pathum Nissanka,University of Jaffna,Batsman,800000,600,11,54.55,80.00,,,,,
+Rangana Herath,University of Ruhuna,Bowler,900000,220,11,20.00,68.00,60,150,600,4.00,15.00
+Roshen Silva,University of Colombo,Batsman,750000,500,10,50.00,77.00,,,,,
+Sadeera Samarawickrama,University of Peradeniya,Batsman,800000,550,11,50.00,79.00,,,,,
+Suranga Lakmal,University of Ruhuna,Bowler,850000,240,12,20.00,70.00,65,160,640,4.00,14.77
+Thisara Perera,University of Moratuwa,All-Rounder,950000,750,14,53.57,86.00,30,70,350,5.00,14.00
+Upul Tharanga,University of Jaffna,Batsman,900000,700,13,53.85,85.00,,,,,
+Wanindu Hasaranga,University of Colombo,All-Rounder,1000000,800,15,53.33,90.00,35,80,400,5.00,13.71
+Angelo Mathews,University of Colombo,All-Rounder,950000,850,16,53.13,91.00,40,90,450,5.00,13.50
+Kusal Perera,University of Kelaniya,Batsman,900000,720,14,51.43,87.00,,,,,

@@ -1,9 +1,10 @@
+
 import { useState, useEffect } from 'react';
 import '../styles/BudgetTracker.css';
 
 export default function BudgetTracker() {
   const totalBudget = 9000000; // Rs 9,000,000 as shown
-  const [spentBudget, setSpentBudget] = useState(8600000);
+  const [spentBudget, setSpentBudget] = useState(8600000); // Rs 8,600,000 as shown
 
   const players = [
     { name: 'Angelo Kumara', category: 'Batsman', value: 800000, percentage: '8.9%' },
@@ -86,4 +87,4 @@ export default function BudgetTracker() {
       </div>
     </section>
   );
-} 
+}

@@ -2,20 +2,32 @@ import { useState, useEffect } from 'react';
 import '../styles/AdminDashboard.css';
 
 export default function AdminDashboard() {
-  const [players, setPlayers] = useState([
-    { id: 'AK', name: 'Angelo Kumara', role: 'Batsman', value: 80000 },
-    { id: 'AS', name: 'Angelo Samarawickrama', role: 'Batsman', value: 1550000 },
-    { id: 'AA', name: 'Asela Asalanka', role: 'Batsman', value: 90000 },
-  ]);
+  const [players, setPlayers] = useState([]);
   const [newPlayer, setNewPlayer] = useState({ id: '', name: '', role: '', value: '' });
   const [editPlayer, setEditPlayer] = useState(null);
   const [editedPlayer, setEditedPlayer] = useState({ id: '', name: '', role: '', value: '' });
 
+  useEffect(() => {
+    // Fetch players from the backend API
+    fetch('/api/players')
+      .then((res) => res.json())
+      .then((data) => setPlayers(data))
+      .catch((error) => console.error('Error fetching players:', error));
+  }, []);
+
   // Create
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
     if (newPlayer.id && newPlayer.name && newPlayer.role && newPlayer.value) {
-      setPlayers([...players, { ...newPlayer, value: parseInt(newPlayer.value) }]);
+      const response = await fetch('/api/players', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPlayer),
+      });
+      const data = await response.json();
+      setPlayers([...players, data]);
       setNewPlayer({ id: '', name: '', role: '', value: '' });
     }
   };
@@ -26,17 +38,28 @@ export default function AdminDashboard() {
     setEditedPlayer({ ...player });
   };
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     if (editedPlayer.id && editedPlayer.name && editedPlayer.role && editedPlayer.value) {
-      setPlayers(players.map(p => p.id === editedPlayer.id ? { ...editedPlayer, value: parseInt(editedPlayer.value) } : p));
+      const response = await fetch(`/api/players/${editedPlayer.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editedPlayer),
+      });
+      const data = await response.json();
+      setPlayers(players.map(p => p.id === editedPlayer.id ? data : p));
       setEditPlayer(null);
       setEditedPlayer({ id: '', name: '', role: '', value: '' });
     }
   };
 
   // Delete
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    await fetch(`/api/players/${id}`, {
+      method: 'DELETE',
+    });
     setPlayers(players.filter(p => p.id !== id));
   };
 
