@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .budget-tracker {
+    padding: 3rem 0.5rem;
+     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+  }
