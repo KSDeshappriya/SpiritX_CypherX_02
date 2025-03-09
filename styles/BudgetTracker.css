@@ -25,3 +25,57 @@ body {
     margin: 0 auto;
   
   }
+
+  .budget-overview, .expenditure-breakdown {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  @media (min-width: 768px) {
+    .budget-overview {
+      width: 40%;
+    }
+    .expenditure-breakdown {
+      width: 58%;
+    }
+  }
+  
+  .budget-overview h2, .expenditure-breakdown h2 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .budget-overview p, .expenditure-breakdown p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+  }
+  
+  .budget-details p {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .spent {
+    color: #ef4444;
+    font-weight: 600;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    margin-top: 1rem;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background: #34d399;
+    transition: width 0.3s;
+  }
