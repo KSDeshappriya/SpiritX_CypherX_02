@@ -18,3 +18,8 @@ export default function BudgetTracker() {
     { name: 'Chamika Chandimal', category: 'Batsman', value: 800000, percentage: '8.9%' },
     { name: 'Suranga Sandakan', category: 'Batsman', value: 750000, percentage: '8.3%' },
   ];
+
+  const remainingBudget = totalBudget - spentBudget;
+  const spentPercentage = (spentBudget / totalBudget) * 100;
+
+  
