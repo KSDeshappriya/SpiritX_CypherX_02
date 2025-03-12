@@ -1,53 +1,30 @@
 import { useState, useEffect } from 'react';
-import '../styles/SelectTeam.css';
+import '../styles/Players.css';
 
-export default function SelectTeam() {
+export default function Players() {
   const [filter, setFilter] = useState('All');
-  const [selectedPlayers, setSelectedPlayers] = useState([]);
-  const [budget, setBudget] = useState(400000); // Initial budget: Rs 400,000
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [players, setPlayers] = useState([]);
-  const maxPlayers = 11;
 
   useEffect(() => {
-    // Fetch players from the backend API
     fetch('/api/players')
       .then((res) => res.json())
-      .then((data) => setPlayers(data))
-      .catch((error) => console.error('Error fetching players:', error));
+      .then((data) => setPlayers(data));
   }, []);
 
   const filteredPlayers = filter === 'All' ? players : players.filter(player => player.role === filter);
 
-  const handleAddPlayer = (player) => {
-    if (selectedPlayers.length < maxPlayers && budget >= player.value) {
-      setSelectedPlayers([...selectedPlayers, player]);
-      setBudget(budget - player.value);
-    }
-  };
-
-  const handleRemovePlayer = (player) => {
-    setSelectedPlayers(selectedPlayers.filter(p => p.id !== player.id));
-    setBudget(budget + player.value);
-  };
-
-  useEffect(() => {
-    // Ensure budget doesn't go negative (though logic above prevents it)
-    if (budget < 0) setBudget(0);
-  }, [budget]);
+  const closePopup = () => setSelectedPlayer(null);
 
   return (
-    <section className='select-team'>
-      <h1 className='select-team-title'>Select Your Team</h1>
-      <div className='select-team-info'>
-        <p>{selectedPlayers.length}/11 players in your team</p>
-        <p>Budget: Rs {budget.toLocaleString()}</p>
-      </div>
-      <div className='select-team-filter'>
+    <section className='players'>
+      <h1 className='players-title'>Players</h1>
+      <div className='players-filter'>
         <button
           className={`filter-button ${filter === 'All' ? 'active' : ''}`}
           onClick={() => setFilter('All')}
         >
-          All
+          All Players
         </button>
         <button
           className={`filter-button ${filter === 'Batsman' ? 'active' : ''}`}
@@ -68,30 +45,54 @@ export default function SelectTeam() {
           All-Rounders
         </button>
       </div>
-      <div className='select-team-grid'>
-        {filteredPlayers.map((player) => (
-          <div key={player.id} className='player-card'>
-            <div className='player-initials'>{player.id}</div>
+      <div className='players-grid'>
+        {filteredPlayers.map((player, index) => (
+          <div key={index} className='player-card'>
+            <div className='player-initials'>{player.name.split(' ').map(n => n[0]).join('')}</div>
             <h3 className='player-name'>{player.name}</h3>
             <p className='player-university'>{player.university}</p>
             <p className='player-role'>{player.role}</p>
             <p className='player-value'>Value: Rs {player.value.toLocaleString()}</p>
-            {selectedPlayers.some(p => p.id === player.id) ? (
-              <button className='remove-button' onClick={() => handleRemovePlayer(player)}>
-                Remove
-              </button>
-            ) : (
-              <button
-                className='add-button'
-                onClick={() => handleAddPlayer(player)}
-                disabled={selectedPlayers.length >= maxPlayers || budget < player.value}
-              >
-                Add
-              </button>
-            )}
+            <a href='#' className='player-details-link' onClick={(e) => { e.preventDefault(); setSelectedPlayer(player); }}>
+              View Details
+            </a>
           </div>
         ))}
       </div>
+      {selectedPlayer && (
+        <div className='player-popup-overlay' onClick={closePopup}>
+          <div className='player-popup' onClick={(e) => e.stopPropagation()}>
+            <button className='popup-close' onClick={closePopup}>x</button>
+            <h2 className='popup-title'>Player Details for {selectedPlayer.name}</h2>
+            <div className='popup-content'>
+              <div className='player-initials'>{selectedPlayer.name.split(' ').map(n => n[0]).join('')}</div>
+              <h3 className='player-name'>{selectedPlayer.name}</h3>
+              <p className='player-university'>{selectedPlayer.university}</p>
+              <p className='player-role'>{selectedPlayer.role}</p>
+              {selectedPlayer.batting && (
+                <div className='stats-section'>
+                  <h4>Batting Statistics</h4>
+                  <p>Total Runs: {selectedPlayer.batting.runs}</p>
+                  <p>Innings Played: {selectedPlayer.batting.innings}</p>
+                  <p>Batting Average: {selectedPlayer.batting.average}</p>
+                  <p>Batting Strike Rate: {selectedPlayer.batting.strikeRate}%</p>
+                </div>
+              )}
+              {selectedPlayer.bowling && (
+                <div className='stats-section'>
+                  <h4>Bowling Statistics</h4>
+                  <p>Wickets: {selectedPlayer.bowling.wickets}</p>
+                  <p>Overs Bowled: {selectedPlayer.bowling.overs}</p>
+                  <p>Runs Conceded: {selectedPlayer.bowling.runsConceded}</p>
+                  <p>Economy Rate: {selectedPlayer.bowling.economy}</p>
+                  <p>Bowling Strike Rate: {selectedPlayer.bowling.strikeRate}</p>
+                </div>
+              )}
+              <p className='player-value'>Player Value: Rs {selectedPlayer.value.toLocaleString()}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
