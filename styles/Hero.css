@@ -72,7 +72,6 @@
 
 .hero-image-container {
   position: relative;
-  margin-right: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -85,6 +84,7 @@
   width: 100%;
   max-width: 600px;
   animation: float 3s ease-in-out infinite;
+   /* Optional: keeps the circular shape */
   box-shadow: 0 0 20px 10px rgba(34, 211, 238, 0.5); /* Blurred outline effect */
 }
 
