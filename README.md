@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SpiritX CypherX 02
 
-## Getting Started
+Welcome to the **SpiritX CypherX 02** project! This repository hosts the source code and resources for the SpiritX CypherX application, a comprehensive platform for managing cricket teams and players.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Setup Guide](#setup-guide)
+- [How to Use](#how-to-use)
+- [Contributing Guidelines](#contributing-guidelines)
+- [API Documentation](#api-documentation)
+- [Database Management](#database-management)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+SpiritX CypherX 02 is a modern web application tailored for cricket enthusiasts. It provides tools for team management, leaderboard tracking, and player statistics, all within an intuitive interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Admin Dashboard**: Manage teams and players efficiently. *(Path: `/admin`)*
+- **Budget Tracker**: Monitor team budgets and expenses. *(Path: `/budget`)*
+- **Leaderboard**: View team rankings and performance metrics. *(Path: `/leaderboard`)*
+- **Player Profiles**: Access detailed player statistics and information. *(Path: `/profile`)*
+- **Home Page**: Showcases a hero section and general application details. *(Path: `/`)*
+- **Authentication**: Secure login and signup functionality. *(Paths: `/login`, `/signup`)*
+- **Players Page**: Browse a comprehensive list of players. *(Path: `/players`)*
+- **Team Selection**: Create and manage your team. *(Path: `/select-team`)*
 
-To learn more about Next.js, take a look at the following resources:
+## Setup Guide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Follow these steps to set up the project locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/KSDeshappriya/SpiritX_CypherX_02.git
+    ```
+2. **Navigate to the Project Directory**:
+    ```bash
+    cd SpiritX_CypherX_02
+    ```
+3. **Install Dependencies**:
+    ```bash
+    pnpm install
+    ```
+4. **Configure Environment Variables**:
+    Create a `.env` file in the root directory and add the required environment variables. Refer to `.env.example` for guidance.
 
-## Deploy on Vercel
+## Database Management
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application uses **Prisma** as the ORM for database interactions. To manage database migrations, use the following commands:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Run Migrations**:
+    ```bash
+    npx prisma migrate dev --name <migration_name>
+    ```
+2. **Generate Prisma Client**:
+    ```bash
+    npx prisma generate
+    ```
+
+Ensure your database connection is properly configured in the `.env` file.
+
+## How to Use
+
+1. **Start the Development Server**:
+    ```bash
+    npm run dev
+    ```
+2. **Access the Application**:
+    Open your browser and navigate to:
+    ```
+    http://localhost:3000
+    ```
+
+## Contributing Guidelines
+
+We welcome contributions to enhance SpiritX CypherX 02! Here's how you can contribute:
+
+1. **Fork the Repository**.
+2. **Create a Feature Branch**:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. **Commit Your Changes**:
+    ```bash
+    git commit -m "Add your-feature-name"
+    ```
+4. **Push to Your Branch**:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. **Submit a Pull Request**.
+
+## API Documentation
+
+The backend API is built using Next.js API routes and includes the following endpoints:
+
+- **Authentication**:
+  - `POST /api/login`: Authenticate users.
+  - `POST /api/signup`: Register new users.
+- **User Management**:
+  - `GET /api/user/profile`: Fetch user profile details.
+
+All endpoints are secured and follow RESTful principles.
+
+## License
+
+This project is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** License. For more details, refer to the [LICENSE](./LICENSE) file.
+
+---
+
+For any questions, suggestions, or feedback, feel free to reach out. Happy coding!
