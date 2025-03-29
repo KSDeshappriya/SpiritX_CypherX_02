@@ -23,6 +23,7 @@ export default function SignUp() {
       if (response.ok) {
         const user = await response.json();
         console.log('User created:', user);
+        localStorage.setItem('token', user.token);
         alert('Sign up successful!');
       } else {
         const error = await response.json();

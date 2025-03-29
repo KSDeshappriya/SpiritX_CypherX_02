@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
 
@@ -28,7 +29,10 @@ export default async function handler(req, res) {
 
       // Respond with user data (excluding sensitive information like password)
       const { password: _, ...userWithoutPassword } = user;
-      res.status(200).json(userWithoutPassword);
+      res.status(200).json({
+        ...userWithoutPassword,
+        token: sign({ userId: user.id }, process.env.JWT_SECRET),
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: error.message });

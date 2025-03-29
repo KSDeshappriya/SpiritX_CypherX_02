@@ -28,6 +28,7 @@ export default function Login() {
 
       const userData = await response.json();
       setSuccess('Login successful!');
+      localStorage.setItem('token', userData.token);
       console.log('User data:', userData);
     } catch (err) {
       setError(err.message);
